@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plantas que Curam | Soluções Naturais Premium</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Variáveis Globais de Cores - Estética Orgânica Premium */
         :root {
-            --bg-color: #F4F3EF;
+            --bg-color: #F4F3EF; /* Creme bem suave */
             --surface: #FFFFFF;
-            --text-dark: #1E2B19;
-            --text-muted: #566452;
-            --primary: #2C4A28;
+            --text-dark: #1E2B19; /* Verde escuro quase preto */
+            --text-muted: #566452; /* Sálvia escuro */
+            --primary: #2C4A28; /* Verde folha profundo */
             --primary-hover: #1A3018;
-            --accent: #E2E6D5;
+            --accent: #E2E6D5; /* Verde musgo super claro */
             --accent-gold: #C6A87C;
             --radius-lg: 24px;
             --radius-md: 16px;
@@ -38,8 +41,10 @@
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Tipografia Premium */
         h1, h2, h3, .serif {
             font-family: 'Playfair Display', serif;
             color: var(--text-dark);
@@ -53,6 +58,7 @@
             z-index: 2;
         }
 
+        /* Efeitos Visuais de Fundo (Blur Orgânico) */
         .ambient-blur {
             position: fixed;
             width: 50vw;
@@ -73,14 +79,13 @@
             background: radial-gradient(circle, rgba(198,168,124,0.15) 0%, rgba(244,243,239,0) 70%);
         }
 
+        /* Navegação */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 0;
             margin-top: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
         }
 
         .logo {
@@ -105,7 +110,6 @@
             display: flex;
             gap: 2.5rem;
             list-style: none;
-            flex-wrap: wrap;
         }
 
         nav a {
@@ -114,12 +118,29 @@
             font-weight: 500;
             color: var(--text-muted);
             transition: var(--transition);
+            position: relative;
         }
 
         nav a:hover {
             color: var(--primary);
         }
 
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Botão Global */
         .btn {
             background: var(--primary);
             color: #fff;
@@ -153,6 +174,7 @@
             color: #fff;
         }
 
+        /* Seção Hero */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -187,8 +209,7 @@
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             overflow: hidden;
             box-shadow: var(--shadow-soft);
-            height: 500px;
-            background: var(--primary);
+            height: 600px;
             animation: shapeShift 15s ease-in-out infinite alternate;
         }
 
@@ -204,143 +225,7 @@
             100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
         }
 
-        .videos-section {
-            background: linear-gradient(135deg, var(--accent) 0%, #f0f3e8 100%);
-            border-radius: var(--radius-lg);
-            padding: 4rem 2rem;
-            margin: 3rem 0;
-        }
-
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .video-card {
-            background: var(--surface);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .video-thumb {
-            position: relative;
-            background: #1a1a2e;
-        }
-
-        .video-thumb img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .video-card:hover .video-thumb img {
-            opacity: 0.8;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(44, 74, 40, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .play-button i {
-            font-size: 2rem;
-            color: white;
-            margin-left: 5px;
-        }
-
-        .video-card:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.1);
-            background: var(--primary);
-        }
-
-        .video-info {
-            padding: 1.5rem;
-        }
-
-        .video-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .video-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .video-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-        }
-
-        .video-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .video-modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 1000px;
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .video-modal-content iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-
-        .close-video {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .close-video:hover {
-            transform: scale(1.1);
-        }
-
+        /* Seções Gerais */
         section {
             padding: 5rem 0;
         }
@@ -361,6 +246,7 @@
             margin: 0 auto;
         }
 
+        /* Grid de Plantas */
         .plants-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -374,6 +260,9 @@
             box-shadow: var(--shadow-soft);
             transition: var(--transition);
             cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
         }
 
         .plant-card:hover {
@@ -384,7 +273,7 @@
         .plant-image {
             height: 240px;
             overflow: hidden;
-            background: var(--accent);
+            position: relative;
         }
 
         .plant-image img {
@@ -398,31 +287,57 @@
             transform: scale(1.05);
         }
 
+        .plant-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .plant-content {
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .plant-content h4 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .plant-content p {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .read-more {
             color: var(--primary);
             font-weight: 500;
             font-size: 0.9rem;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 8px;
+            transition: var(--transition);
             text-decoration: none;
         }
 
+        .plant-card:hover .read-more {
+            gap: 12px;
+        }
+
+        /* Grid de Soluções */
         .solutions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -439,6 +354,7 @@
 
         .solution-card:hover {
             background: var(--primary);
+            color: white;
             transform: translateY(-5px);
         }
 
@@ -446,32 +362,81 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
+            transition: var(--transition);
         }
 
         .solution-card:hover i,
-        .solution-card:hover p,
-        .solution-card:hover h4 {
+        .solution-card:hover p {
             color: white;
         }
 
         .solution-card h4 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .solution-card p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            transition: var(--transition);
         }
 
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 4rem 0 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Modal Ultra-Premium */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(20, 30, 15, 0.4);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -479,6 +444,7 @@
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
+            padding: 1rem;
         }
 
         .modal-overlay.active {
@@ -493,12 +459,15 @@
             border-radius: var(--radius-lg);
             padding: 3rem;
             position: relative;
-            transform: translateY(30px);
-            transition: 0.5s;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
         }
 
         .modal-overlay.active .modal-content {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+            opacity: 1;
         }
 
         .modal-close {
@@ -510,19 +479,46 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-dark);
         }
 
-        footer {
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding: 4rem 0 2rem;
-            text-align: center;
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
         }
 
+        .modal-body h3 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-tag {
+            display: inline-block;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Animações de Scroll (Fade Up) */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -530,32 +526,28 @@
             transform: translateY(0);
         }
 
+        /* Responsividade */
         @media (max-width: 992px) {
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 3rem;
+                padding: 3rem 0;
             }
             .hero-text p {
-                margin: 1.5rem auto;
+                margin: 1.5rem auto 2.5rem;
             }
             .hero-image {
                 height: 400px;
             }
-            .videos-grid {
-                grid-template-columns: 1fr;
-            }
-            .video-modal-content iframe {
-                height: 300px;
-            }
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                justify-content: center;
+            nav {
+                display: none; /* Em um projeto real, adicionar menu hambúrguer */
             }
             .hero-text h2 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             .section-header h3 {
                 font-size: 2rem;
@@ -565,10 +557,12 @@
 </head>
 <body>
 
+    <!-- Efeitos de Fundo -->
     <div class="ambient-blur"></div>
     <div class="ambient-blur two"></div>
 
     <div class="container">
+        <!-- Cabeçalho -->
         <header class="reveal active">
             <a href="#" class="logo">
                 <i class="fa-solid fa-leaf"></i>
@@ -577,165 +571,220 @@
             <nav>
                 <ul>
                     <li><a href="#herbarium">Herbarium</a></li>
-                    <li><a href="#videos">Vídeos</a></li>
                     <li><a href="#solucoes">Tratamentos</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
                 </ul>
             </nav>
             <a href="#herbarium" class="btn btn-outline">Explorar</a>
         </header>
 
+        <!-- Seção Principal -->
         <main>
             <section class="hero reveal active">
                 <div class="hero-text">
                     <h2>O poder de curar <i>vem da terra</i></h2>
                     <p>Descubra a sabedoria botânica milenar. Nossa curadoria de plantas medicinais e tratamentos naturais para reconectar seu corpo e mente ao equilíbrio original.</p>
-                    <a href="#herbarium" class="btn">Conheça as Plantas <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a href="#herbarium" class="btn">
+                        Conheça as Plantas <i class="fa-solid fa-arrow-right-long" style="margin-left: 8px;"></i>
+                    </a>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Folhas de Aloe Vera">
+                    <!-- Imagem premium do Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1556379092-dca659792591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Folhas de Aloe Vera e estética natural">
                 </div>
             </section>
 
-            <section id="videos">
-                <div class="section-header reveal">
-                    <h3>🌿 Sabedoria em Movimento</h3>
-                    <p>Conteúdos especiais sobre o poder curativo das plantas. Clique no vídeo para assistir.</p>
-                </div>
-                <div class="videos-section">
-                    <div class="videos-grid">
-                        <div class="video-card reveal" data-video-id="1J9npuAHsDs">
-                            <div class="video-thumb">
-                                <img src="https://img.youtube.com/vi/1J9npuAHsDs/maxresdefault.jpg" alt="Vídeo sobre Plantas Medicinais">
-                                <div class="play-button">
-                                    <i class="fa-solid fa-play"></i>
-                                </div>
-                            </div>
-                            <div class="video-info">
-                                <h4>🌱 O Segredo das Ervas Ancestrais</h4>
-                                <p>Descubra como as plantas medicinais eram utilizadas por civilizações antigas e como aplicar esse conhecimento hoje.</p>
-                            </div>
-                        </div>
-                        <div class="video-card reveal" data-video-id="k-NOCMCSsmg">
-                            <div class="video-thumb">
-                                <img src="https://img.youtube.com/vi/k-NOCMCSsmg/maxresdefault.jpg" alt="Receitas Naturais">
-                                <div class="play-button">
-                                    <i class="fa-solid fa-play"></i>
-                                </div>
-                            </div>
-                            <div class="video-info">
-                                <h4>🍃 Receitas que Curam: Chás e Preparos</h4>
-                                <p>Aprenda a preparar chás, cataplasmas e tinturas em casa com segurança e eficácia.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <!-- Herbarium (Grid de Plantas) -->
             <section id="herbarium">
                 <div class="section-header reveal">
                     <h3>Nosso Herbarium</h3>
-                    <p>Um compêndio selecionado de espécimes botânicos com potentes propriedades terapêuticas.</p>
+                    <p>Um compêndio selecionado de espécimes botânicos reconhecidos por suas potentes propriedades terapêuticas e de regeneração.</p>
                 </div>
-                <div class="plants-grid" id="plantsGrid"></div>
+                <div class="plants-grid" id="plantsGrid">
+                    <!-- Cards injetados via JS -->
+                </div>
             </section>
 
+            <!-- Soluções / Tratamentos -->
             <section id="solucoes">
                 <div class="section-header reveal">
                     <h3>Tratamentos Naturais</h3>
-                    <p>Aplicações práticas da botânica para seu ritual diário de autocuidado.</p>
+                    <p>Aplicações práticas da botânica para o seu ritual diário de autocuidado e saúde integrada.</p>
                 </div>
                 <div class="solutions-grid">
-                    <div class="solution-card reveal"><i class="fa-solid fa-mug-hot"></i><h4>Infusões Botânicas</h4><p>Chás que acalmam e promovem limpeza profunda.</p></div>
-                    <div class="solution-card reveal"><i class="fa-solid fa-mortar-pestle"></i><h4>Cataplasmas</h4><p>Ação anti-inflamatória e alívio articular.</p></div>
-                    <div class="solution-card reveal"><i class="fa-solid fa-flask"></i><h4>Extratos e Tinturas</h4><p>Alta concentração para imunidade diária.</p></div>
-                    <div class="solution-card reveal"><i class="fa-solid fa-droplet"></i><h4>Óleos Essenciais</h4><p>Aromaterapia para regulação emocional.</p></div>
+                    <div class="solution-card reveal">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <h4>Infusões Botânicas</h4>
+                        <p>Chás e decocções elaborados para acalmar o sistema nervoso e promover limpeza profunda.</p>
+                    </div>
+                    <div class="solution-card reveal" style="transition-delay: 100ms;">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <h4>Cataplasmas Ativos</h4>
+                        <p>Preparações tópicas de ervas maceradas para ação anti-inflamatória e alívio articular imediato.</p>
+                    </div>
+                    <div class="solution-card reveal" style="transition-delay: 200ms;">
+                        <i class="fa-solid fa-flask"></i>
+                        <h4>Extratos e Tinturas</h4>
+                        <p>A mais alta concentração dos princípios ativos em gotas para imunidade e vitalidade diária.</p>
+                    </div>
+                    <div class="solution-card reveal" style="transition-delay: 300ms;">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h4>Óleos Essenciais</h4>
+                        <p>Aromaterapia clínica para regulação emocional, alívio do estresse crônico e foco mental.</p>
+                    </div>
                 </div>
             </section>
         </main>
 
+        <!-- Rodapé -->
         <footer class="reveal">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary); display: inline-block; margin-bottom: 1rem;">Plantas que Curam</span>
-            <p>As informações são para fins educacionais. Consulte um profissional de saúde.</p>
-            <div class="copyright">© 2026 Plantas que Curam</div>
+            <span class="footer-logo">Plantas que Curam</span>
+            <p>Resgatando o vínculo ancestral com a natureza. As informações apresentadas são para fins educacionais e não substituem o aconselhamento médico especializado.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Plantas que Curam. Design premium exclusivo.
+            </div>
         </footer>
     </div>
 
-    <div class="modal-overlay" id="plantModal">
+    <!-- Modal Premium -->
+    <div class="modal-overlay" id="premiumModal">
         <div class="modal-content">
-            <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
-            <h3 id="modalTitle" style="font-family: 'Playfair Display', serif;">Título</h3>
-            <p id="modalDesc" style="color: var(--text-muted);">Descrição...</p>
-        </div>
-    </div>
-
-    <div class="video-modal" id="videoModal">
-        <div class="video-modal-content">
-            <button class="close-video" id="closeVideo">&times;</button>
-            <iframe id="videoFrame" src="" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button class="modal-close" id="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body">
+                <span class="modal-tag" id="modalCura">Categoria</span>
+                <h3 id="modalTitle">Nome da Planta</h3>
+                <p id="modalDesc">Descrição detalhada sobre a botânica, uso histórico e aplicação terapêutica contemporânea.</p>
+                <button class="btn" style="width: 100%; justify-content: center; margin-top: 1rem;" onclick="fecharModal()">Compreender Ritual</button>
+            </div>
         </div>
     </div>
 
     <script>
-        const plantas = [
-            { nome: "Aloe Vera", cura: "Regeneração", img: "https://images.pexels.com/photos/2132051/pexels-photo-2132051.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Poderoso cicatrizante e hidratante natural. Acelera a regeneração celular." },
-            { nome: "Camomila", cura: "Calmante", img: "https://images.pexels.com/photos/1591746/pexels-photo-1591746.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Ansiedade, insônia e inflamações. Chá de camomila alivia dores de estômago." },
-            { nome: "Hortelã", cura: "Digestiva", img: "https://images.pexels.com/photos/696809/pexels-photo-696809.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Alivia cólicas e dores de cabeça. Ação refrescante e descongestionante." },
-            { nome: "Gengibre", cura: "Anti-inflamatório", img: "https://images.pexels.com/photos/967341/pexels-photo-967341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fortalece imunidade e combate náuseas. Poderoso contra gripes." },
-            { nome: "Equinácea", cura: "Imunidade", img: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Aumenta defesas contra infecções virais e respiratórias." },
-            { nome: "Alecrim", cura: "Memória", img: "https://images.pexels.com/photos/2317710/pexels-photo-2317710.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Melhora concentração e circulação. Estimulante mental natural." }
+        // Dados refinados com imagens Premium (Unsplash)
+        const plantasData = [
+            {
+                nome: "Aloe Vera",
+                cura: "Regeneração & Hidratação",
+                img: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80",
+                desc: "Reconhecida milenarmente como a 'planta da imortalidade'. Seu gel puro é um poderoso cicatrizante biológico que acelera a regeneração celular, além de possuir enzimas únicas que reestruturam tecidos lesionados."
+            },
+            {
+                nome: "Matricaria Chamomilla",
+                cura: "Calmante Sistêmico",
+                img: "https://images.unsplash.com/photo-1608523126830-1b2c458140db?auto=format&fit=crop&w=600&q=80",
+                desc: "A Camomila atua diretamente nos receptores cerebrais promovendo sedação leve e relaxamento muscular. Seus flavonoides reduzem inflamações gástricas e induzem a um estado de sono profundo e reparador."
+            },
+            {
+                nome: "Mentha Piperita",
+                cura: "Digestivo & Analgésico",
+                img: "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=600&q=80",
+                desc: "A Hortelã-pimenta contém altas concentrações de mentol. É clinicamente utilizada para aliviar síndromes do intestino irritável, enxaquecas tensionais e atuar como um potente descongestionante natural das vias aéreas."
+            },
+            {
+                nome: "Zingiber Officinale",
+                cura: "Imunidade & Anti-inflamatório",
+                img: "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?auto=format&fit=crop&w=600&q=80",
+                desc: "O Gengibre abriga gingeróis com propriedades bioativas extraordinárias. É um escudo imunológico que inibe o estresse oxidativo, combate náuseas agudas e reduz dores de base inflamatória sistêmica."
+            },
+            {
+                nome: "Echinacea Purpurea",
+                cura: "Defesa Celular",
+                img: "https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=600&q=80",
+                desc: "Uma das plantas imunomoduladoras mais estudadas pela ciência botânica. A Equinácea aumenta ativamente a contagem de glóbulos brancos, sendo a principal barreira orgânica contra patógenos e infecções sazonais."
+            },
+            {
+                nome: "Rosmarinus Officinalis",
+                cura: "Nootrópico Natural",
+                img: "https://images.unsplash.com/photo-1595011701239-16a7f51659a8?auto=format&fit=crop&w=600&q=80",
+                desc: "O Alecrim é o tônico do cérebro. Seus compostos aromáticos atravessam a barreira hematoencefálica, estimulando o fluxo sanguíneo cerebral, aprimorando a retenção de memória e dissipando a fadiga mental profunda."
+            }
         ];
 
-        const gridEl = document.getElementById('plantsGrid');
-        plantas.forEach((p, i) => {
-            const card = document.createElement('div');
-            card.className = 'plant-card reveal';
-            card.innerHTML = `<div class="plant-image"><img src="${p.img}" loading="lazy" alt="${p.nome}"></div><div class="plant-content"><h4>${p.nome}</h4><p>${p.desc}</p><a href="#" class="read-more" data-index="${i}">Saber mais →</a></div>`;
-            gridEl.appendChild(card);
+        // Renderização Dinâmica do Grid
+        const grid = document.getElementById('plantsGrid');
+        
+        plantasData.forEach((planta, index) => {
+            const delay = index * 100; // Efeito cascata na animação
+            const card = document.createElement('article');
+            card.className = `plant-card reveal`;
+            card.style.transitionDelay = `${delay}ms`;
+            card.innerHTML = `
+                <div class="plant-image">
+                    <span class="plant-tag">${planta.cura.split('&')[0]}</span>
+                    <img src="${planta.img}" alt="${planta.nome}" loading="lazy">
+                </div>
+                <div class="plant-content">
+                    <h4>${planta.nome}</h4>
+                    <p>${planta.desc.substring(0, 95)}...</p>
+                    <a href="#" class="read-more" data-index="${index}">Descobrir propriedades <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            `;
+            grid.appendChild(card);
         });
 
-        const modal = document.getElementById('plantModal');
+        // Lógica do Modal Premium
+        const modal = document.getElementById('premiumModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalDesc = document.getElementById('modalDesc');
-        const closeModalBtn = document.getElementById('closeModal');
+        const modalCura = document.getElementById('modalCura');
+        const closeBtn = document.getElementById('closeModal');
 
+        function abrirModal(index) {
+            const planta = plantasData[index];
+            modalTitle.innerText = planta.nome;
+            modalCura.innerText = planta.cura;
+            modalDesc.innerText = planta.desc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evita rolagem do fundo
+        }
+
+        function fecharModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Eventos de Clique
         document.querySelectorAll('.read-more').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const idx = btn.getAttribute('data-index');
-                modalTitle.innerText = plantas[idx].nome;
-                modalDesc.innerText = `${plantas[idx].desc} Propriedade: ${plantas[idx].cura}. Use com consciência e consulte um especialista.`;
-                modal.classList.add('active');
+                abrirModal(e.target.closest('.read-more').getAttribute('data-index'));
             });
         });
 
-        closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
-        modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
-
-        const videoModal = document.getElementById('videoModal');
-        const videoFrame = document.getElementById('videoFrame');
-        const closeVideo = document.getElementById('closeVideo');
-
-        document.querySelectorAll('.video-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const videoId = card.getAttribute('data-video-id');
-                videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
-                videoModal.classList.add('active');
-            });
+        closeBtn.addEventListener('click', fecharModal);
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) fecharModal();
         });
 
-        function fecharVideoModal() {
-            videoModal.classList.remove('active');
-            videoFrame.src = '';
-        }
+        // Fechar com tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) fecharModal();
+        });
 
-        closeVideo.addEventListener('click', fecharVideoModal);
-        videoModal.addEventListener('click', (e) => { if(e.target === videoModal) fecharVideoModal(); });
+        // Animação de Scroll (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Anima apenas uma vez
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
 
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        reveals.forEach(r => observer.observe(r));
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
