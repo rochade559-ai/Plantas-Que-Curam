@@ -227,18 +227,12 @@
         .video-thumb {
             position: relative;
             background: #1a1a2e;
-            overflow: hidden;
         }
 
         .video-thumb img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .video-card:hover .video-thumb img {
-            transform: scale(1.05);
         }
 
         .play-button {
@@ -253,18 +247,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
         }
 
         .play-button i {
             font-size: 2rem;
             color: white;
             margin-left: 5px;
-        }
-
-        .video-card:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.1);
-            background: var(--primary);
         }
 
         .video-info {
@@ -274,11 +262,6 @@
         .video-info h4 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-        }
-
-        .video-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         .video-modal {
@@ -366,17 +349,20 @@
             height: 240px;
             overflow: hidden;
             background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .plant-image i {
+            font-size: 5rem;
+            color: var(--primary);
         }
 
         .plant-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .plant-card:hover .plant-image img {
-            transform: scale(1.05);
         }
 
         .plant-content {
@@ -543,36 +529,31 @@
                 </div>
             </section>
 
-            <!-- Seção de Vídeos - COM MINIATURAS CORRIGIDAS -->
             <section id="videos">
                 <div class="section-header reveal">
                     <h3>🌿 Sabedoria em Movimento</h3>
-                    <p>Conteúdos especiais sobre o poder curativo das plantas. Clique no vídeo para assistir.</p>
+                    <p>Clique no vídeo para assistir.</p>
                 </div>
                 <div class="videos-section">
                     <div class="videos-grid">
                         <div class="video-card reveal" data-video-id="1J9npuAHsDs">
                             <div class="video-thumb">
-                                <img src="https://img.youtube.com/vi/1J9npuAHsDs/hqdefault.jpg" alt="Vídeo sobre Plantas Medicinais">
-                                <div class="play-button">
-                                    <i class="fa-solid fa-play"></i>
-                                </div>
+                                <img src="https://img.youtube.com/vi/1J9npuAHsDs/maxresdefault.jpg" alt="Vídeo Ervas Ancestrais">
+                                <div class="play-button"><i class="fa-solid fa-play"></i></div>
                             </div>
                             <div class="video-info">
                                 <h4>🌱 O Segredo das Ervas Ancestrais</h4>
-                                <p>Descubra como as plantas medicinais eram utilizadas por civilizações antigas e como aplicar esse conhecimento hoje.</p>
+                                <p>Descubra como as plantas medicinais eram utilizadas por civilizações antigas.</p>
                             </div>
                         </div>
                         <div class="video-card reveal" data-video-id="k-NOCMCSsmg">
                             <div class="video-thumb">
-                                <img src="https://img.youtube.com/vi/k-NOCMCSsmg/hqdefault.jpg" alt="Receitas Naturais">
-                                <div class="play-button">
-                                    <i class="fa-solid fa-play"></i>
-                                </div>
+                                <img src="https://img.youtube.com/vi/k-NOCMCSsmg/maxresdefault.jpg" alt="Receitas Naturais">
+                                <div class="play-button"><i class="fa-solid fa-play"></i></div>
                             </div>
                             <div class="video-info">
-                                <h4>🍃 Receitas que Curam: Chás e Preparos</h4>
-                                <p>Aprenda a preparar chás, cataplasmas e tinturas em casa com segurança e eficácia.</p>
+                                <h4>🍃 Receitas que Curam</h4>
+                                <p>Aprenda a preparar chás, cataplasmas e tinturas em casa.</p>
                             </div>
                         </div>
                     </div>
