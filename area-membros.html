@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Membros | Plantas que Curam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1E2B19 0%, #2C4A28 100%);
+            min-height: 100vh;
+        }
+        
+        .membros-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header-membros {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .welcome-badge {
+            background: #2C4A28;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            display: inline-block;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .materiais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .material-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .material-icon {
+            width: 80px;
+            height: 80px;
+            background: #E2E6D5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .material-icon i {
+            font-size: 2.5rem;
+            color: #2C4A28;
+        }
+        
+        .btn-download {
+            background: #2C4A28;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn-download:hover {
+            background: #1A3018;
+            transform: scale(1.05);
+        }
+        
+        .info-plano {
+            background: #FFF3E0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #D4451E;
+            color: #D4451E;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: #D4451E;
+            color: white;
+        }
+        
+        .chave-info {
+            background: #F4F3EF;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .membros-container { padding: 1rem; }
+            .material-card { padding: 1rem; }
+        }
+        
+        /* Modal de download */
+        .modal-download {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-download.active {
+            display: flex;
+        }
+        
+        .modal-content-download {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #E2E6D5;
+            border-top-color: #2C4A28;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="membros-container">
+        <div class="header-membros">
+            <div class="welcome-badge">
+                <i class="fa-solid fa-crown"></i> ÁREA VIP - ACESSO VITALÍCIO
+            </div>
+            <h1 style="font-family: 'Playfair Display', serif;">🌿 Protocolo Saúde em Dia</h1>
+            <p>Bem-vindo(a), <span id="nomeMembro" style="font-weight: bold; color: #2C4A28;">Membro</span>!</p>
+            <div class="chave-info">
+                <i class="fa-solid fa-key"></i> Sua Chave: <span id="chaveAtual"></span>
+                <button class="btn-copiar" onclick="copiarChave()" style="background: #2C4A28; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 6px; margin-left: 0.5rem; cursor: pointer;">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fa-solid fa-sign-out-alt"></i> Sair da Área VIP
+            </button>
+        </div>
+        
+        <div class="materiais-grid">
+            <!-- Material Principal -->
+            <div class="material-card" onclick="baixarMaterial('principal')">
+                <div class="material-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <h3>📘 Protocolo Saúde em Dia</h3>
+                <p>Guia completo para reverter os efeitos da vacina com plantas medicinais.</p>
+                <p style="color: #2C4A28; font-weight: bold; margin: 1rem 0;">📄 214 páginas | PDF</p>
+                <button class="btn-download">
+                    <i class="fa-solid fa-download"></i> Baixar Agora
+                </button>
+            </div>
+            
+            <!-- Bônus 1 -->
+            <div class="material-card" onclick="baixarMaterial('bonus1')">
+                <div class="material-icon">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+                <h3>🍃 Diabetes Zero</h3>
+                <p>Método natural para controlar e reverter a diabetes tipo 2.</p>
+                <p style="color: #2C4A28; font-weight: bold; margin: 1rem 0;">📄 98 páginas | PDF</p>
+                <button class="btn-download">
+                    <i class="fa-solid fa-download"></i> Baixar Agora
+                </button>
+            </div>
+            
+            <!-- Bônus 2 -->
+            <div class="material-card" onclick="baixarMaterial('bonus2')">
+                <div class="material-icon">
+                    <i class="fa-solid fa-shield-virus"></i>
+                </div>
+                <h3>🛡️ 98 Doenças Evitadas</h3>
+                <p>Guia de prevenção para as doenças crônicas mais comuns.</p>
+                <p style="color: #2C4A28; font-weight: bold; margin: 1rem 0;">📄 156 páginas | PDF</p>
+                <button class="btn-download">
+                    <i class="fa-solid fa-download"></i> Baixar Agora
+                </button>
+            </div>
+            
+            <!-- Bônus 3 - Vídeos -->
+            <div class="material-card" onclick="abrirVideos()">
+                <div class="material-icon">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <h3>📹 Aulas em Vídeo</h3>
+                <p>7 vídeos exclusivos com o passo a passo completo.</p>
+                <p style="color: #2C4A28; font-weight: bold; margin: 1rem 0;">🎬 7 aulas | Online</p>
+                <button class="btn-download">
+                    <i class="fa-solid fa-play"></i> Assistir Aulas
+                </button>
+            </div>
+        </div>
+        
+        <div class="info-plano">
+            <i class="fa-solid fa-headset" style="font-size: 2rem; color: #D4451E;"></i>
+            <h3>Suporte VIP 24/7</h3>
+            <p>Tire suas dúvidas diretamente com nossa equipe no WhatsApp.</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Acabei%20de%20comprar%20o%20Protocolo%20Saúde%20em%20Dia%20e%20preciso%20de%20ajuda!" 
+               class="btn-download" style="background: #25D366; margin-top: 0.5rem; display: inline-block;">
+                <i class="fa-brands fa-whatsapp"></i> Falar com Suporte
+            </a>
+        </div>
+    </div>
+    
+    <!-- Modal de Download -->
+    <div id="modalDownload" class="modal-download">
+        <div class="modal-content-download">
+            <i class="fa-solid fa-download" style="font-size: 3rem; color: #2C4A28;"></i>
+            <h3 id="modalTitle">Preparando download...</h3>
+            <div class="spinner"></div>
+            <p id="modalMessage">Seu download será iniciado em instantes.</p>
+            <button onclick="fecharModal()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #2C4A28; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                Fechar
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Verificar chave de acesso
+        const urlParams = new URLSearchParams(window.location.search);
+        const chaveUrl = urlParams.get('chave');
+        const chaveStorage = localStorage.getItem('chave_acesso');
+        const nomeStorage = localStorage.getItem('cliente_nome');
+        
+        // Validar acesso
+        if (!chaveUrl && !chaveStorage) {
+            alert('🔒 Acesso negado! Por favor, use sua chave de acesso.');
+            window.location.href = 'index.html';
+        }
+        
+        // Se veio com chave na URL, salvar
+        if (chaveUrl && !chaveStorage) {
+            localStorage.setItem('chave_acesso', chaveUrl);
+        }
+        
+        // Verificar se chave é válida
+        const chaveAtual = localStorage.getItem('chave_acesso');
+        if (!chaveAtual || !chaveAtual.startsWith('PC-')) {
+            alert('🔒 Chave inválida! Contate o suporte.');
+            window.location.href = 'index.html';
+        }
+        
+        // Exibir informações
+        const nome = localStorage.getItem('cliente_nome') || 'Membro VIP';
+        document.getElementById('nomeMembro').innerText = nome;
+        document.getElementById('chaveAtual').innerText = chaveAtual;
+        
+        // LINKS DOS MATERIAIS (SUBSTITUIR PELOS LINKS REAIS DO GOOGLE DRIVE)
+        const LINKS = {
+            principal: '#',
+            bonus1: '#',
+            bonus2: '#',
+            videos: 'https://www.youtube.com/playlist?list=SUA_PLAYLIST_ID'
+        };
+        
+        // Função para baixar material
+        window.baixarMaterial = function(tipo) {
+            const modal = document.getElementById('modalDownload');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            let link = '';
+            let titulo = '';
+            
+            switch(tipo) {
+                case 'principal':
+                    link = LINKS.principal;
+                    titulo = 'Protocolo Saúde em Dia';
+                    break;
+                case 'bonus1':
+                    link = LINKS.bonus1;
+                    titulo = 'Bônus: Diabetes Zero';
+                    break;
+                case 'bonus2':
+                    link = LINKS.bonus2;
+                    titulo = 'Bônus: 98 Doenças Evitadas';
+                    break;
+                default:
+                    return;
+            }
+            
+            modalTitle.innerText = `📥 Baixando: ${titulo}`;
+            modal.classList.add('active');
+            
+            if (link === '#') {
+                setTimeout(() => {
+                    modalMessage.innerHTML = '⚠️ <strong>Link não configurado!</strong><br><br>Por favor, contate o suporte para receber os materiais.<br><br>Sua chave: ' + chaveAtual;
+                    document.querySelector('.spinner').style.display = 'none';
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    window.open(link, '_blank');
+                    modalMessage.innerHTML = '✅ Download iniciado!<br>Verifique sua pasta de downloads.';
+                    document.querySelector('.spinner').style.display = 'none';
+                    
+                    setTimeout(() => {
+                        fecharModal();
+                    }, 3000);
+                }, 1500);
+            }
+        };
+        
+        window.abrirVideos = function() {
+            if (LINKS.videos && LINKS.videos !== '#') {
+                window.open(LINKS.videos, '_blank');
+            } else {
+                alert('📹 Em breve! As videoaulas serão liberadas em até 24h.\n\nSua chave: ' + chaveAtual);
+            }
+        };
+        
+        window.fecharModal = function() {
+            const modal = document.getElementById('modalDownload');
+            modal.classList.remove('active');
+            document.querySelector('.spinner').style.display = 'block';
+            document.getElementById('modalMessage').innerHTML = 'Seu download será iniciado em instantes.';
+        };
+        
+        window.copiarChave = function() {
+            navigator.clipboard.writeText(chaveAtual);
+            alert('✅ Chave copiada! Guarde em um local seguro.');
+        };
+        
+        window.logout = function() {
+            if (confirm('⚠️ Tem certeza que deseja sair?\n\nVocê precisará da chave novamente para acessar.')) {
+                localStorage.removeItem('chave_acesso');
+                window.location.href = 'index.html';
+            }
+        };
+        
+        // Registrar acesso
+        console.log('✅ Acesso autorizado para:', nome);
+        console.log('🔑 Chave:', chaveAtual);
+        
+        // Se não tiver links configurados
+        if (LINKS.principal === '#') {
+            console.warn('⚠️ Configure os links dos PDFs no arquivo area-membros.html');
+        }
+    </script>
+</body>
+</html>

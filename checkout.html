@@ -1,0 +1,169 @@
+@"
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Protocolo Saúde em Dia</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #F4F3EF 0%, #E2E6D5 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .checkout-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 { font-size: 1.8rem; margin-bottom: 1rem; color: #1E2B19; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+        .btn-pix {
+            background: #2C4A28;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .qr-code {
+            text-align: center;
+            padding: 2rem;
+            background: #F4F3EF;
+            border-radius: 16px;
+            margin-top: 1rem;
+        }
+        .qr-code img { max-width: 200px; margin: 1rem auto; }
+        .hidden { display: none; }
+        .status {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+        .status.pending { background: #FFF3E0; color: #FFB800; }
+        .status.approved { background: #E8F5E9; color: #2C4A28; }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>💰 Pagamento via PIX</h1>
+        <p>Escaneie o QR Code ou copie o código PIX</p>
+        
+        <div class="form-group">
+            <label>Seu nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo">
+        </div>
+        <div class="form-group">
+            <label>Seu e-mail</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail">
+        </div>
+        
+        <button class="btn-pix" onclick="gerarPix()">
+            <i class="fa-brands fa-pix"></i> Gerar QR Code PIX
+        </button>
+        
+        <div id="pixArea" class="hidden qr-code">
+            <h3>📱 Escaneie o QR Code</h3>
+            <img id="qrCodeImage" src="" alt="QR Code PIX">
+            <p>ou copie o código:</p>
+            <input type="text" id="qrCodeText" readonly style="font-size: 0.7rem;">
+            <button onclick="copiarPix()">Copiar Código</button>
+            <div id="paymentStatus"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentPaymentId = null;
+        
+        async function gerarPix() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            
+            if (!nome || !email) {
+                alert('Preencha nome e e-mail');
+                return;
+            }
+            
+            const response = await fetch('/api/create-pix', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email,
+                    transaction_amount: 67.00
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                currentPaymentId = data.payment_id;
+                document.getElementById('qrCodeImage').src = 'data:image/png;base64,' + data.qr_code_base64;
+                document.getElementById('qrCodeText').value = data.qr_code;
+                document.getElementById('pixArea').classList.remove('hidden');
+                
+                // Salvar dados do cliente
+                localStorage.setItem('cliente_nome', nome);
+                localStorage.setItem('cliente_email', email);
+                localStorage.setItem('payment_id', currentPaymentId);
+                
+                // Verificar status a cada 3 segundos
+                checkPaymentStatus();
+            } else {
+                alert('Erro: ' + data.error);
+            }
+        }
+        
+        async function checkPaymentStatus() {
+            if (!currentPaymentId) return;
+            
+            const interval = setInterval(async () => {
+                const response = await fetch(`/api/payment-status/${currentPaymentId}`);
+                const data = await response.json();
+                
+                const statusDiv = document.getElementById('paymentStatus');
+                
+                if (data.status === 'approved') {
+                    clearInterval(interval);
+                    statusDiv.innerHTML = '<div class="status approved">✅ PAGAMENTO APROVADO! Redirecionando...</div>';
+                    localStorage.setItem('chave_acesso', 'PC-' + Math.random().toString(36).substring(2, 15).toUpperCase());
+                    setTimeout(() => {
+                        window.location.href = 'area-membros.html';
+                    }, 2000);
+                } else if (data.status === 'pending') {
+                    statusDiv.innerHTML = '<div class="status pending">⏳ Aguardando pagamento... Escaneie o QR Code</div>';
+                } else {
+                    statusDiv.innerHTML = '<div class="status pending">⏳ Status: ' + data.status + '</div>';
+                }
+            }, 3000);
+        }
+        
+        function copiarPix() {
+            const text = document.getElementById('qrCodeText');
+            text.select();
+            document.execCommand('copy');
+            alert('✅ Código PIX copiado!');
+        }
+    </script>
+</body>
+</html>
+"@ | Out-File -FilePath "checkout.html" -Encoding UTF8

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Acesso</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #1E2B19;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        pre {
+            background: #2C4A28;
+            padding: 2rem;
+            border-radius: 16px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <pre id="output"></pre>
+    <script>
+        const compras = JSON.parse(localStorage.getItem('compras') || '[]');
+        const output = document.getElementById('output');
+        
+        output.innerHTML = `
+╔════════════════════════════════════════╗
+║     CHAVES DE ACESSO VÁLIDAS           ║
+╠════════════════════════════════════════╣
+${compras.map(c => `║ Nome: ${c.nome.padEnd(30)}║\n║ Chave: ${c.chave.padEnd(30)}║\n╠════════════════════════════════════════╣`).join('\n')}
+║ Total: ${compras.length} acesso(s) concedido(s)    ║
+╚════════════════════════════════════════╝
+        `;
+    </script>
+</body>
+</html>
