@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo Saúde em Dia | Reverta os Efeitos da Vacina Naturalmente</title>
+    <title>Protocolo Saúde em Dia | Restaure Sua Vitalidade Naturalmente</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg-color: #F4F3EF;
+            --bg-color: #F8F9F5;
             --surface: #FFFFFF;
-            --text-dark: #1E2B19;
-            --text-muted: #566452;
-            --primary: #2C4A28;
-            --primary-hover: #1A3018;
-            --accent: #E2E6D5;
-            --urgent: #D4451E;
-            --urgent-light: #FDE8E3;
-            --gold: #FFB800;
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 20px 50px rgba(44, 74, 40, 0.08);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --text-dark: #1A2416;
+            --text-muted: #4A5745;
+            --primary: #1F3B1C;
+            --primary-hover: #132411;
+            --accent: #DCE3CB;
+            --urgent: #E03E1A;
+            --urgent-light: #FFF0ED;
+            --gold: #F5B301;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px rgba(31, 59, 28, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         body {
@@ -42,18 +38,17 @@
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
             z-index: 2;
         }
 
+        /* Efeito de Vidro (Glassmorphism) para Área de Cliente */
         .client-access {
             position: fixed;
             top: 20px;
@@ -62,94 +57,117 @@
         }
 
         .btn-client {
-            background: var(--primary);
-            color: white;
-            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--primary);
+            padding: 10px 20px;
             border-radius: 100px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border: none;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255,255,255,0.5);
             cursor: pointer;
         }
 
         .btn-client:hover {
-            background: var(--gold);
-            color: var(--text-dark);
+            background: var(--primary);
+            color: white;
             transform: translateY(-2px);
         }
 
+        /* Hero & Vendas Otimizado */
         .sales-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a3a18 100%);
+            background: linear-gradient(145deg, #1A2E18 0%, #0F1A0E 100%);
             border-radius: var(--radius-lg);
-            padding: 3rem;
-            margin: 3rem 0;
+            padding: 4rem;
+            margin: 4rem 0;
             color: white;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sales-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 179, 1, 0.05) 0%, transparent 60%);
+            z-index: 0;
         }
 
         .sales-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .product-badge {
             display: inline-block;
-            background: var(--gold);
-            color: #1E2B19;
-            padding: 0.5rem 1rem;
+            background: rgba(245, 179, 1, 0.15);
+            color: var(--gold);
+            padding: 0.5rem 1.2rem;
             border-radius: 100px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(245, 179, 1, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .product-title {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
         }
 
         .product-price {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            color: var(--gold);
+            line-height: 1;
         }
 
         .old-price {
             text-decoration: line-through;
             opacity: 0.6;
             font-size: 1.2rem;
+            color: white;
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .benefits-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
+        .benefits-list { list-style: none; margin: 2rem 0; }
         .benefits-list li {
-            margin: 0.8rem 0;
+            margin: 1rem 0;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
+            font-size: 1.1rem;
         }
+        .benefits-list i { color: var(--gold); font-size: 1.2rem; }
 
-        .benefits-list i {
-            color: var(--gold);
-        }
-
+        /* Timer de Escassez Aprimorado */
         .timer-container {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-md);
             padding: 1.5rem;
             text-align: center;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
+            backdrop-filter: blur(5px);
         }
 
         .timer {
@@ -160,471 +178,208 @@
         }
 
         .timer-box {
-            background: white;
-            color: var(--primary);
+            background: rgba(255,255,255,0.1);
+            color: white;
             padding: 0.8rem;
-            border-radius: 12px;
-            min-width: 70px;
+            border-radius: 8px;
+            min-width: 75px;
             text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
         }
+        .timer-box span { font-size: 2.2rem; font-weight: 800; display: block; font-family: monospace; }
+        .timer-box label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;}
 
-        .timer-box span {
-            font-size: 2rem;
-            font-weight: 800;
-            display: block;
-        }
-
-        .timer-box label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-        }
-
+        /* Formulário de Checkout High-Trust */
         .checkout-form {
-            background: white;
+            background: var(--surface);
             border-radius: var(--radius-lg);
-            padding: 2rem;
+            padding: 2.5rem;
             color: var(--text-dark);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
         }
 
-        .form-group {
-            margin-bottom: 1rem;
+        .checkout-form::before {
+            content: '💳 PAGAMENTO SEGURO';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;}
         .form-group input {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
+            padding: 1rem;
+            border: 1.5px solid #E2E8F0;
             border-radius: 8px;
             font-size: 1rem;
+            transition: var(--transition);
+            background: #F8FAFC;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(31, 59, 28, 0.1);
         }
 
         .payment-options {
             display: flex;
-            gap: 1rem;
+            gap: 10px;
             margin-bottom: 1.5rem;
-            flex-wrap: wrap;
         }
 
         .payment-btn {
             flex: 1;
-            padding: 0.8rem;
-            background: #E2E6D5;
-            border: 2px solid #2C4A28;
-            border-radius: 12px;
+            padding: 1rem 0.5rem;
+            background: white;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
+            font-weight: 600;
+            transition: var(--transition);
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
         }
 
+        .payment-btn i { font-size: 1.2rem; }
+
         .payment-btn.active {
-            background: #2C4A28;
-            color: white;
+            background: #F0FDF4;
+            border-color: #22C55E;
+            color: #166534;
         }
+        .payment-btn.active i { color: #22C55E; }
 
         .btn-buy {
             width: 100%;
             background: var(--urgent);
             color: white;
             padding: 1.2rem;
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 800;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
             margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(224, 62, 26, 0.4);
+            text-transform: uppercase;
+        }
+
+        .btn-buy::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .btn-buy:hover {
-            background: #b83818;
-            transform: scale(1.02);
+            background: #C43212;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(224, 62, 26, 0.5);
         }
 
         .secure-badge {
             text-align: center;
             margin-top: 1rem;
             font-size: 0.8rem;
-            color: #888;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .bonus-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
-
+        
         .bonus-card {
             background: var(--surface);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--accent);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bonus-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .bonus-card i {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .testimonials {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin: 4rem 0;
         }
-
+        
         .testimonial-card {
             background: var(--surface);
             border-radius: var(--radius-md);
             padding: 2rem;
-            text-align: center;
+            text-align: left;
+            box-shadow: var(--shadow-soft);
+            border-left: 4px solid var(--gold);
         }
 
-        .guarantee {
-            text-align: center;
-            padding: 3rem;
-            background: var(--accent);
-            border-radius: var(--radius-lg);
-            margin: 2rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .section-header h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .logo i {
-            color: var(--primary);
-            font-size: 1.4rem;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            padding: 3rem 0;
-        }
-
-        .hero-text h2 {
-            font-size: 3rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .hero-text h2 i {
+        .testimonial-card p {
             font-style: italic;
-            color: var(--primary);
-        }
-
-        .hero-image {
-            position: relative;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            overflow: hidden;
-            height: 400px;
-            background: #c8d6b9;
-            animation: shapeShift 15s ease-in-out infinite alternate;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @keyframes shapeShift {
-            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-            100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
-        }
-
-        .videos-section {
-            background: linear-gradient(135deg, var(--accent) 0%, #f0f3e8 100%);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .video-card {
-            background: var(--surface);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .video-thumb {
-            position: relative;
-        }
-
-        .video-thumb img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(44, 74, 40, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .play-button i {
-            font-size: 1.5rem;
-            color: white;
-            margin-left: 5px;
-        }
-
-        .video-info {
-            padding: 1rem;
-        }
-
-        .plants-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .plant-card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .plant-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .plant-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .plant-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .plant-content {
-            padding: 1.5rem;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .solution-card {
-            background: var(--accent);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .solution-card:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .solution-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .video-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-        }
-
-        .video-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .video-modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 800px;
-        }
-
-        .video-modal-content iframe {
-            width: 100%;
-            height: 450px;
-        }
-
-        .close-video {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 0 2rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            margin-top: 3rem;
-        }
-
-        .stock-counter {
-            background: var(--urgent-light);
-            color: var(--urgent);
-            padding: 0.8rem;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
             margin: 1rem 0;
+            color: var(--text-muted);
         }
 
-        .ambient-blur {
-            position: fixed;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(226,230,213,0.8) 0%, rgba(244,243,239,0) 70%);
-            border-radius: 50%;
-            top: -10vw;
-            right: -10vw;
-            z-index: 0;
-            pointer-events: none;
-            filter: blur(80px);
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
+        /* Modal do cliente */
         .client-modal {
             display: none;
             position: fixed;
@@ -633,15 +388,11 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.8);
-            z-index: 2000;
+            z-index: 1000;
             align-items: center;
             justify-content: center;
         }
-
-        .client-modal.active {
-            display: flex;
-        }
-
+        .client-modal.active { display: flex; }
         .client-modal-content {
             background: white;
             border-radius: 24px;
@@ -650,7 +401,6 @@
             width: 90%;
             text-align: center;
         }
-
         .client-modal-content input {
             width: 100%;
             padding: 1rem;
@@ -662,35 +412,31 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .container { padding: 0 1rem; }
-            .sales-grid { grid-template-columns: 1fr; }
-            .product-title { font-size: 1.8rem; }
-            .bonus-grid { grid-template-columns: 1fr; }
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .timer-box { min-width: 60px; }
-            .timer-box span { font-size: 1.5rem; }
+            .sales-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .sales-section { padding: 2rem; margin: 2rem 0; }
+            .product-title { font-size: 2.2rem; }
             .payment-options { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-blur"></div>
-
     <div class="client-access">
         <button class="btn-client" onclick="abrirModalCliente()">
-            <i class="fa-solid fa-door-open"></i> CLIQUE AQUI PARA ACESSAR CONTEÚDO
+            <i class="fa-solid fa-user-lock"></i> ÁREA DO ALUNO
         </button>
     </div>
 
+    <!-- Modal do Cliente -->
     <div id="modalCliente" class="client-modal">
         <div class="client-modal-content">
-            <i class="fa-solid fa-key" style="font-size: 3rem; color: #2C4A28; margin-bottom: 1rem;"></i>
+            <i class="fa-solid fa-key" style="font-size: 3rem; color: #1F3B1C; margin-bottom: 1rem;"></i>
             <h3>Acesse sua Área de Membros</h3>
             <p>Digite sua chave de acesso:</p>
             <input type="text" id="chaveCliente" placeholder="Ex: PC-XXXXXX" autocomplete="off">
-            <button onclick="validarEAcessar()" style="background: #2C4A28; color: white; padding: 1rem; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; width: 100%;">
+            <button onclick="validarEAcessar()" style="background: #1F3B1C; color: white; padding: 1rem; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; width: 100%;">
                 <i class="fa-solid fa-arrow-right"></i> Acessar Agora
             </button>
             <button onclick="fecharModalCliente()" style="margin-top: 1rem; background: none; border: none; color: #888; cursor: pointer;">Cancelar</button>
@@ -698,73 +444,73 @@
     </div>
 
     <div class="container">
-        <section class="sales-section">
+        <!-- VENDAS HERO -->
+        <section class="sales-section reveal">
             <div class="sales-grid">
                 <div>
-                    <span class="product-badge">🔬 DESCOBERTA CIENTÍFICA 2026</span>
-                    <h1 class="product-title">REVERTA OS EFEITOS DA VACINA<br>com o Poder das Plantas Medicinais</h1>
-                    <p style="font-size: 1.1rem; opacity: 0.9;">Protocolo natural que já ajudou mais de 15.000 pessoas a eliminarem os efeitos colaterais e recuperarem sua saúde plena.</p>
+                    <span class="product-badge"><i class="fa-solid fa-microscope"></i> FÓRMULA BOTÂNICA VALIDADA</span>
+                    <h1 class="product-title">RESTAURE SUA VITALIDADE<br>com o Poder das Plantas Medicinais</h1>
+                    <p style="font-size: 1.2rem; opacity: 0.9;">Protocolo natural que já ajudou mais de 15.000 pessoas a desintoxicarem o corpo e recuperarem sua imunidade plena em 21 dias.</p>
                     
-                    <div class="stock-counter" id="stockCounter">🔥 ÚLTIMAS 47 UNIDADES COM BÔNUS EXCLUSIVOS!</div>
-
                     <div class="timer-container">
-                        <i class="fa-regular fa-clock"></i> OFERTA POR TEMPO LIMITADO:
+                        <p style="font-weight: 600; margin-bottom: 5px;"><i class="fa-solid fa-stopwatch"></i> OFERTA DE LANÇAMENTO ENCERRA EM:</p>
                         <div class="timer">
                             <div class="timer-box"><span id="hours">02</span><label>Horas</label></div>
-                            <div class="timer-box"><span id="minutes">00</span><label>Minutos</label></div>
-                            <div class="timer-box"><span id="seconds">00</span><label>Segundos</label></div>
+                            <div class="timer-box"><span id="minutes">00</span><label>Min</label></div>
+                            <div class="timer-box"><span id="seconds">00</span><label>Seg</label></div>
                         </div>
                     </div>
 
                     <ul class="benefits-list">
-                        <li><i class="fa-solid fa-check-circle"></i> Elimina efeitos colaterais da vacina</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Protocolo de 21 dias com plantas medicinais</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Método validado por fitoterapeutas</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Livro digital + Bônus instantâneos</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Protocolo de 21 dias com plantas acessíveis</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Purificação orgânica e celular profunda</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Método aprovado por fitoterapeutas</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Acesso imediato ao material e aos bônus</li>
                     </ul>
 
                     <div class="product-price">
-                        <span class="old-price">De R$ 197,00</span><br>
-                        Por apenas <strong>12x de R$ 6,70</strong><br>
-                        <small>ou R$ 67,00 à vista</small>
+                        <span class="old-price">De R$ 197,00</span>
+                        12x de R$ 6,70
+                        <div style="font-size: 1.2rem; font-weight: 400; color: white; margin-top: 5px;">ou R$ 67,00 à vista</div>
                     </div>
                 </div>
 
+                <!-- FORMULÁRIO -->
                 <div>
                     <div class="checkout-form">
-                        <h3 style="margin-bottom: 1rem;">⚡ Escolha a forma de pagamento</h3>
+                        <h3 style="margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;">Finalize sua Inscrição</h3>
                         
                         <div class="payment-options">
-                            <button type="button" class="payment-btn active" onclick="selectPayment('pix', this)">💰 PIX</button>
-                            <button type="button" class="payment-btn" onclick="selectPayment('card', this)">💳 Cartão</button>
-                            <button type="button" class="payment-btn" onclick="selectPayment('boleto', this)">📄 Boleto</button>
+                            <button type="button" class="payment-btn active" onclick="selectPayment('pix', this)">
+                                <i class="fa-brands fa-pix"></i> PIX
+                            </button>
+                            <button type="button" class="payment-btn" onclick="selectPayment('card', this)">
+                                <i class="fa-regular fa-credit-card"></i> Cartão
+                            </button>
+                            <button type="button" class="payment-btn" onclick="selectPayment('boleto', this)">
+                                <i class="fa-solid fa-barcode"></i> Boleto
+                            </button>
                         </div>
 
                         <form id="checkoutForm">
                             <div class="form-group">
-                                <label>Seu nome completo</label>
-                                <input type="text" id="nome" required placeholder="Ex: Maria Silva">
+                                <label>Nome Completo</label>
+                                <input type="text" id="nome" required placeholder="Digite seu nome">
                             </div>
                             <div class="form-group">
-                                <label>Seu melhor e-mail</label>
-                                <input type="email" id="email" required placeholder="voce@email.com">
+                                <label>E-mail (Para receber o acesso)</label>
+                                <input type="email" id="email" required placeholder="seu@email.com">
                             </div>
                             <div class="form-group">
-                                <label>WhatsApp (opcional)</label>
-                                <input type="tel" id="whatsapp" placeholder="(11) 99999-9999">
-                            </div>
-                            
-                            <div class="form-group" id="cpfGroup" style="display: none;">
-                                <label>CPF (obrigatório para boleto)</label>
-                                <input type="text" id="cpf" placeholder="000.000.000-00">
+                                <label>WhatsApp</label>
+                                <input type="tel" id="whatsapp" placeholder="(00) 00000-0000">
                             </div>
                             
                             <button type="submit" class="btn-buy" id="buyButton">
-                                <i class="fa-solid fa-lock"></i> COMPRAR AGORA - R$ 67,00
+                                QUERO GARANTIR MEU ACESSO
                             </button>
                             <div class="secure-badge">
-                                <i class="fa-solid fa-shield-heart"></i> Pagamento 100% seguro via Mercado Pago<br>
-                                Compra protegida | Acesso imediato
+                                <i class="fa-solid fa-lock" style="color: #22C55E;"></i> Ambiente seguro e criptografado
                             </div>
                         </form>
                     </div>
@@ -772,178 +518,89 @@
             </div>
         </section>
 
-        <section>
-            <div class="section-header">
-                <h3>🎁 BÔNUS EXCLUSIVOS (SÓ HOJE)</h3>
+        <!-- BÔNUS -->
+        <section class="reveal" style="margin: 5rem 0;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 class="serif" style="font-size: 2.5rem; color: var(--primary);">Bônus Exclusivos</h3>
+                <p>Garantindo sua vaga hoje, você recebe esses presentes gratuitamente.</p>
             </div>
             <div class="bonus-grid">
                 <div class="bonus-card">
-                    <i class="fa-solid fa-book-open"></i>
-                    <h4>Bônus 1: Diabetes Zero</h4>
-                    <p>Método natural para controlar e reverter a diabetes.</p>
-                    <span style="color: var(--gold);">🔥 Valor: R$ 97,00</span>
+                    <i class="fa-solid fa-droplet"></i>
+                    <h4>Guia Glicemia Controlada</h4>
+                    <p>Estratégias naturais para auxiliar na regulação do açúcar no sangue de forma leve e eficaz.</p>
+                    <p style="color: #E03E1A; text-decoration: line-through; margin-top: 1rem;">R$ 97,00</p>
+                    <strong style="color: #22C55E;">HOJE: GRÁTIS</strong>
                 </div>
                 <div class="bonus-card">
-                    <i class="fa-solid fa-shield-virus"></i>
-                    <h4>Bônus 2: 98 Doenças Evitadas</h4>
-                    <p>Guia completo para se proteger das doenças crônicas.</p>
-                    <span style="color: var(--gold);">🔥 Valor: R$ 127,00</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Escudo Imunológico</h4>
+                    <p>Um manual com as melhores tinturas e extratos para proteger seu corpo o ano inteiro.</p>
+                    <p style="color: #E03E1A; text-decoration: line-through; margin-top: 1rem;">R$ 127,00</p>
+                    <strong style="color: #22C55E;">HOJE: GRÁTIS</strong>
                 </div>
                 <div class="bonus-card">
-                    <i class="fa-solid fa-head-side-medical"></i>
-                    <h4>Bônus 3: Acompanhamento VIP</h4>
-                    <p>Grupo exclusivo no WhatsApp com suporte de 30 dias.</p>
-                    <span style="color: var(--gold);">🔥 Valor: R$ 197,00</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h4>Comunidade VIP</h4>
+                    <p>Acesso ao grupo exclusivo de alunos para tirar dúvidas e compartilhar resultados.</p>
+                    <p style="color: #E03E1A; text-decoration: line-through; margin-top: 1rem;">R$ 197,00</p>
+                    <strong style="color: #22C55E;">HOJE: GRÁTIS</strong>
                 </div>
             </div>
         </section>
 
-        <section>
-            <div class="section-header">
-                <h3>💚 O que nossos clientes dizem</h3>
+        <!-- PROVA SOCIAL -->
+        <section class="reveal">
+            <div style="text-align: center;">
+                <h3 class="serif" style="font-size: 2.5rem; color: var(--primary);">Vidas Transformadas</h3>
             </div>
             <div class="testimonials">
                 <div class="testimonial-card">
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <p>"Em 21 dias segui o protocolo e meus sintomas pós-vacina desapareceram completamente!"</p>
+                    <div style="color: var(--gold); margin-bottom: 10px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Minha fadiga constante sumiu em menos de duas semanas aplicando os chás corretos. Incrível como a natureza age rápido."</p>
                     <strong>— Ana Paula R.</strong>
                 </div>
                 <div class="testimonial-card">
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <p>"Minha diabetes baixou de 300 pra 110 só com as orientações do bônus. Valeu cada centavo!"</p>
+                    <div style="color: var(--gold); margin-bottom: 10px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Os bônus sozinhos já valem 10x o valor do material. Consegui regular minha digestão e a energia voltou ao normal."</p>
                     <strong>— Carlos M.</strong>
                 </div>
                 <div class="testimonial-card">
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <i class="fa-solid fa-star" style="color: var(--gold);"></i>
-                    <p>"Protocolo fácil de seguir e os resultados apareceram rápido. Minha energia voltou ao normal!"</p>
+                    <div style="color: var(--gold); margin-bottom: 10px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Fácil de seguir, didático e direto ao ponto. Estava cética, mas hoje indico o protocolo para toda a minha família."</p>
                     <strong>— Fernanda L.</strong>
                 </div>
             </div>
         </section>
-
-        <div class="guarantee">
-            <i class="fa-solid fa-medal" style="font-size: 3rem; color: var(--gold);"></i>
-            <h3>Garantia Incondicional de 7 Dias</h3>
-            <p>Você tem 7 dias para testar o protocolo. Se não ficar satisfeita(o), devolvemos 100% do seu dinheiro.</p>
-        </div>
-
-        <header>
-            <a href="#" class="logo">
-                <i class="fa-solid fa-leaf"></i>
-                <h1>Plantas que Curam</h1>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#herbarium">Herbarium</a></li>
-                    <li><a href="#videos">Vídeos</a></li>
-                    <li><a href="#solucoes">Tratamentos</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <div class="hero-text">
-                <h2>O poder de curar <i>vem da terra</i></h2>
-                <p>Descubra a sabedoria botânica milenar. Nossa curadoria de plantas medicinais e tratamentos naturais para reconectar seu corpo e mente ao equilíbrio original.</p>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=500&fit=crop" alt="Babosa">
-            </div>
-        </section>
-
-        <section id="videos">
-            <div class="section-header"><h3>🌿 Sabedoria em Movimento</h3></div>
-            <div class="videos-section">
-                <div class="videos-grid">
-                    <div class="video-card" data-video-id="1J9npuAHsDs">
-                        <div class="video-thumb">
-                            <img src="https://img.youtube.com/vi/1J9npuAHsDs/maxresdefault.jpg" alt="Vídeo Ervas Ancestrais">
-                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="video-info"><h4>🌱 O Segredo das Ervas Ancestrais</h4></div>
-                    </div>
-                    <div class="video-card" data-video-id="k-NOCMCSsmg">
-                        <div class="video-thumb">
-                            <img src="https://img.youtube.com/vi/k-NOCMCSsmg/maxresdefault.jpg" alt="Receitas Naturais">
-                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="video-info"><h4>🍃 Receitas que Curam</h4></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="herbarium">
-            <div class="section-header"><h3>Nosso Herbarium</h3></div>
-            <div class="plants-grid" id="plantsGrid"></div>
-        </section>
-
-        <section id="solucoes">
-            <div class="section-header"><h3>Tratamentos Naturais</h3></div>
-            <div class="solutions-grid">
-                <div class="solution-card"><i class="fa-solid fa-mug-hot"></i><h4>Infusões Botânicas</h4><p>Chás que acalmam e promovem limpeza profunda.</p></div>
-                <div class="solution-card"><i class="fa-solid fa-mortar-pestle"></i><h4>Cataplasmas</h4><p>Ação anti-inflamatória e alívio articular.</p></div>
-                <div class="solution-card"><i class="fa-solid fa-flask"></i><h4>Extratos e Tinturas</h4><p>Alta concentração para imunidade diária.</p></div>
-                <div class="solution-card"><i class="fa-solid fa-droplet"></i><h4>Óleos Essenciais</h4><p>Aromaterapia para regulação emocional.</p></div>
-            </div>
-        </section>
-
-        <footer>
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary);">Plantas que Curam</span>
-            <p>As informações são para fins educacionais. Consulte um profissional de saúde.</p>
-            <div class="copyright">© 2026 Plantas que Curam</div>
-        </footer>
-    </div>
-
-    <div class="modal-overlay" id="plantModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
-            <h3 id="modalTitle">Título</h3>
-            <p id="modalDesc">Descrição...</p>
-        </div>
-    </div>
-
-    <div class="video-modal" id="videoModal">
-        <div class="video-modal-content">
-            <button class="close-video" id="closeVideo">&times;</button>
-            <iframe id="videoFrame" src="" allow="autoplay=0; fullscreen"></iframe>
+        
+        <!-- GARANTIA -->
+        <div class="reveal" style="text-align: center; padding: 4rem 2rem; background: var(--accent); border-radius: var(--radius-lg); margin: 4rem 0;">
+            <i class="fa-solid fa-award" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
+            <h3 class="serif" style="font-size: 2rem;">Garantia Incondicional de 7 Dias</h3>
+            <p style="max-width: 600px; margin: 1rem auto;">Seu risco é zero. Se você acessar o material e achar que não é para você, basta nos enviar um e-mail em até 7 dias e devolveremos 100% do seu investimento. Sem burocracia.</p>
         </div>
     </div>
 
     <script>
+        // Configuração do Mercado Pago
         const PREFERENCE_ID = '1724894093-e91fbc4f-ef3d-4de1-b744-eb70a501e00a';
         let metodoPagamento = 'pix';
-        
+
         function selectPayment(metodo, btn) {
             metodoPagamento = metodo;
             document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            document.getElementById('cpfGroup').style.display = metodo === 'boleto' ? 'block' : 'none';
         }
-        
-        const plantas = [
-            { nome: "🌵 Aloe Vera", cura: "Regeneração", img: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&h=240&fit=crop", desc: "Poderoso cicatrizante e hidratante natural." },
-            { nome: "🌼 Camomila", cura: "Calmante", img: "https://images.unsplash.com/photo-1595434091154-d1fe836d4762?w=600&h=240&fit=crop", desc: "Ansiedade, insônia e inflamações." },
-            { nome: "🌿 Hortelã", cura: "Digestiva", img: "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?w=600&h=240&fit=crop", desc: "Alivia cólicas e dores de cabeça." },
-            { nome: "🫚 Gengibre", cura: "Anti-inflamatório", img: "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?w=600&h=240&fit=crop", desc: "Fortalece imunidade e combate náuseas." },
-            { nome: "🌸 Equinácea", cura: "Imunidade", img: "https://images.unsplash.com/photo-1599305090598-fe179d501227?w=600&h=240&fit=crop", desc: "Aumenta defesas contra infecções." },
-            { nome: "🌲 Alecrim", cura: "Memória", img: "https://images.unsplash.com/photo-1595011701239-16a7f51659a8?w=600&h=240&fit=crop", desc: "Melhora concentração e circulação." }
-        ];
 
+        // Timer de Urgência
         function startTimer() {
-            let timeLeft = 2 * 60 * 60;
+            let timeLeft = 2 * 60 * 60 + 15 * 60;
             const timerInterval = setInterval(() => {
                 if (timeLeft <= 0) clearInterval(timerInterval);
                 else {
@@ -954,170 +611,60 @@
                 }
             }, 1000);
         }
-        
-        let estoque = 47;
-        function updateStock() {
-            const stockElem = document.getElementById('stockCounter');
-            if (estoque <= 10) {
-                stockElem.innerHTML = `⚡⚡⚡ URGENTE: APENAS ${estoque} UNIDADES! ⚡⚡⚡`;
-                stockElem.style.background = '#FF4444';
-            } else {
-                stockElem.innerHTML = `🔥 ÚLTIMAS ${estoque} UNIDADES COM BÔNUS!`;
+        startTimer();
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
-        
-        const gridEl = document.getElementById('plantsGrid');
-        plantas.forEach((p, i) => {
-            const card = document.createElement('div');
-            card.className = 'plant-card';
-            card.innerHTML = `<div class="plant-image"><img src="${p.img}"></div><div class="plant-content"><h4>${p.nome}</h4><p>${p.desc}</p><a href="#" class="read-more" data-index="${i}">Saber mais →</a></div>`;
-            gridEl.appendChild(card);
-        });
+        window.addEventListener("scroll", reveal);
+        reveal();
 
-        const modal = document.getElementById('plantModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        document.querySelectorAll('.read-more').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const idx = btn.getAttribute('data-index');
-                modalTitle.innerText = plantas[idx].nome;
-                modalDesc.innerText = `${plantas[idx].desc} Propriedade: ${plantas[idx].cura}.`;
-                modal.classList.add('active');
-            });
-        });
-        document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('active'));
-        modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
-
-        const videoModal = document.getElementById('videoModal');
-        const videoFrame = document.getElementById('videoFrame');
-        document.querySelectorAll('.video-card').forEach(card => {
-            card.addEventListener('click', () => {
-                videoFrame.src = `https://www.youtube.com/embed/${card.getAttribute('data-video-id')}?autoplay=0`;
-                videoModal.classList.add('active');
-            });
-        });
-        document.getElementById('closeVideo').addEventListener('click', () => {
-            videoModal.classList.remove('active');
-            videoFrame.src = '';
-        });
-        videoModal.addEventListener('click', (e) => { if(e.target === videoModal) { videoModal.classList.remove('active'); videoFrame.src = ''; } });
-
-        // FUNÇÃO DE COMPRA ATUALIZADA
+        // Checkout
         document.getElementById('checkoutForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const whatsapp = document.getElementById('whatsapp').value;
-            const cpf = document.getElementById('cpf').value;
             
             if (!nome || !email) {
-                alert('⚠️ Por favor, preencha seu nome e e-mail.');
+                alert('⚠️ Preencha nome e e-mail');
                 return;
             }
             
-            if (metodoPagamento === 'boleto' && !cpf) {
-                alert('⚠️ Para pagamento em boleto, informe seu CPF.');
-                return;
-            }
-            
-            // Salvar dados do cliente
             localStorage.setItem('cliente_nome', nome);
             localStorage.setItem('cliente_email', email);
             localStorage.setItem('cliente_whatsapp', whatsapp);
-            localStorage.setItem('cliente_cpf', cpf);
-            localStorage.setItem('compra_realizada', 'true');
             
-            // Reduzir estoque
-            if (estoque > 0) {
-                estoque--;
-                updateStock();
-                localStorage.setItem('estoque_atual', estoque);
-            }
-            
-            // Gerar chave de acesso temporária
-            const chaveTemp = 'PC-' + Math.random().toString(36).substring(2, 15).toUpperCase();
-            localStorage.setItem('chave_acesso', chaveTemp);
-            
-            // Criar URL de pagamento
             let url = `https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=${PREFERENCE_ID}`;
+            if (metodoPagamento === 'pix') url += '&payment_method_id=pix';
+            if (metodoPagamento === 'boleto') url += '&payment_method_id=bolbradesco';
             
-            // Adicionar método de pagamento específico
-            if (metodoPagamento === 'pix') {
-                url += '&payment_method_id=pix';
-            } else if (metodoPagamento === 'boleto') {
-                url += '&payment_method_id=bolbradesco';
-            }
-            
-            // Adicionar dados do comprador na URL (opcional)
-            url += `&payer.email=${encodeURIComponent(email)}`;
-            url += `&payer.first_name=${encodeURIComponent(nome.split(' ')[0])}`;
-            
-            // Redirecionar para o Mercado Pago
             window.location.href = url;
         });
 
-        // Funções do modal de cliente
-        window.abrirModalCliente = () => {
-            document.getElementById('modalCliente').classList.add('active');
-            document.getElementById('chaveCliente').value = '';
-        };
-        
-        window.fecharModalCliente = () => {
-            document.getElementById('modalCliente').classList.remove('active');
-        };
+        // Funções do modal do cliente
+        window.abrirModalCliente = () => document.getElementById('modalCliente').classList.add('active');
+        window.fecharModalCliente = () => document.getElementById('modalCliente').classList.remove('active');
         
         window.validarEAcessar = () => {
             const chave = document.getElementById('chaveCliente').value.trim().toUpperCase();
-            if (!chave) {
-                alert('🔒 Por favor, digite sua chave de acesso.');
-                return;
-            }
-            
-            // Validar chave (qualquer chave que comece com PC- é aceita para teste)
-            if (chave.startsWith('PC-')) {
-                localStorage.setItem('chave_acesso', chave);
-                window.location.href = `area-membros.html?chave=${encodeURIComponent(chave)}`;
-            } else {
-                alert('❌ Chave inválida! Use uma chave no formato PC-XXXXXX');
-            }
+            if (!chave) return alert('🔒 Digite sua chave de acesso');
+            localStorage.setItem('chave_acesso', chave);
+            window.location.href = `area-membros.html?chave=${encodeURIComponent(chave)}`;
         };
         
-        // Fechar modal clicando fora
         document.getElementById('modalCliente').addEventListener('click', (e) => { 
-            if(e.target === document.getElementById('modalCliente')) {
-                window.fecharModalCliente();
-            }
+            if(e.target === document.getElementById('modalCliente')) window.fecharModalCliente(); 
         });
-        
-        // Permitir Enter no campo da chave
-        document.getElementById('chaveCliente').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                window.validarEAcessar();
-            }
-        });
-        
-        // Inicialização
-        startTimer();
-        updateStock();
-        
-        // Carregar estoque salvo
-        const savedStock = localStorage.getItem('estoque_atual');
-        if (savedStock) {
-            estoque = parseInt(savedStock);
-            updateStock();
-        }
-        
-        // Verificar se veio de pagamento aprovado
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('payment_id') && urlParams.get('status') === 'approved') {
-            localStorage.setItem('pagamento_aprovado', 'true');
-            window.location.href = 'obrigado.html';
-        }
-        
-        console.log('🚀 Site pronto para vendas!');
-        console.log('📱 Preference ID:', PREFERENCE_ID);
     </script>
 </body>
 </html>
