@@ -3,668 +3,665 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo Saúde em Dia | Restaure Sua Vitalidade Naturalmente</title>
+    <title>Dr. Gilmar Rocha | O Deputado do Povão</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        :root {
+            --green-primary: #00875A;
+            --green-dark: #064E3B;
+            --blue-navy: #0B2240;
+            --blue-accent: #1E3A8A;
+            --gold-accent: #EAB308;
+            --gold-light: #FEF08A;
+            --bg-light: #F8FAFC;
+            --surface-white: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 30px -5px rgba(11, 34, 64, 0.08);
+            --shadow-hover: 0 20px 40px -10px rgba(0, 135, 90, 0.2);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --bg-color: #F8F9F5;
-            --surface: #FFFFFF;
-            --text-dark: #1A2416;
-            --text-muted: #4A5745;
-            --primary: #1F3B1C;
-            --primary-hover: #132411;
-            --accent: #DCE3CB;
-            --urgent: #E03E1A;
-            --urgent-light: #FFF0ED;
-            --gold: #F5B301;
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 20px 40px rgba(31, 59, 28, 0.1);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-light);
             font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        h1, h2, h3, .heading-font {
+            font-family: 'Montserrat', sans-serif;
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Header / Navbar --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #E2E8F0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-flag {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--green-primary), var(--blue-navy));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-accent);
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .brand-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--blue-navy);
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--green-primary);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+        }
+
+        .nav-btn:hover {
+            background: #1eb956;
+            transform: translateY(-2px);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 3.5rem 0;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, var(--blue-navy) 0%, #06152B 100%);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(11, 34, 64, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(0, 135, 90, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        /* Efeito de Vidro (Glassmorphism) para Área de Cliente */
-        .client-access {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        .btn-client {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: flex;
+        .badge-tag {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: var(--transition);
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(255,255,255,0.5);
-            cursor: pointer;
-        }
-
-        .btn-client:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Hero & Vendas Otimizado */
-        .sales-section {
-            background: linear-gradient(145deg, #1A2E18 0%, #0F1A0E 100%);
-            border-radius: var(--radius-lg);
-            padding: 4rem;
-            margin: 4rem 0;
-            color: white;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sales-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 179, 1, 0.05) 0%, transparent 60%);
-            z-index: 0;
-        }
-
-        .sales-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-badge {
-            display: inline-block;
-            background: rgba(245, 179, 1, 0.15);
-            color: var(--gold);
-            padding: 0.5rem 1.2rem;
+            background: rgba(234, 179, 8, 0.15);
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            color: var(--gold-light);
+            padding: 0.4rem 1rem;
             border-radius: 100px;
             font-size: 0.85rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(245, 179, 1, 0.3);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        .product-title {
+        .hero-title {
             font-size: 3rem;
-            margin-bottom: 1.2rem;
+            font-weight: 900;
             line-height: 1.1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
         }
 
-        .product-price {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin: 1.5rem 0;
-            color: var(--gold);
-            line-height: 1;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            opacity: 0.6;
-            font-size: 1.2rem;
-            color: white;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .benefits-list { list-style: none; margin: 2rem 0; }
-        .benefits-list li {
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.1rem;
-        }
-        .benefits-list i { color: var(--gold); font-size: 1.2rem; }
-
-        /* Timer de Escassez Aprimorado */
-        .timer-container {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            text-align: center;
-            margin: 2rem 0;
-            backdrop-filter: blur(5px);
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .timer-box {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            padding: 0.8rem;
-            border-radius: 8px;
-            min-width: 75px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .timer-box span { font-size: 2.2rem; font-weight: 800; display: block; font-family: monospace; }
-        .timer-box label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;}
-
-        /* Formulário de Checkout High-Trust */
-        .checkout-form {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            color: var(--text-dark);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .checkout-form::before {
-            content: '💳 PAGAMENTO SEGURO';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;}
-        .form-group input {
-            width: 100%;
-            padding: 1rem;
-            border: 1.5px solid #E2E8F0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: var(--transition);
-            background: #F8FAFC;
-        }
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(31, 59, 28, 0.1);
-        }
-
-        .payment-options {
-            display: flex;
-            gap: 10px;
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gold-accent);
+            font-weight: 700;
             margin-bottom: 1.5rem;
         }
 
-        .payment-btn {
-            flex: 1;
-            padding: 1rem 0.5rem;
-            background: white;
-            border: 1.5px solid #E2E8F0;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            color: var(--text-muted);
+        .hero-description {
+            font-size: 1.1rem;
+            color: #CBD5E1;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-description strong {
+            color: white;
+        }
+
+        .cta-box {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 5px;
+            gap: 1rem;
         }
 
-        .payment-btn i { font-size: 1.2rem; }
-
-        .payment-btn.active {
-            background: #F0FDF4;
-            border-color: #22C55E;
-            color: #166534;
-        }
-        .payment-btn.active i { color: #22C55E; }
-
-        .btn-buy {
-            width: 100%;
-            background: var(--urgent);
+        .btn-primary-action {
+            background: #25D366;
             color: white;
-            padding: 1.2rem;
-            font-size: 1.2rem;
+            padding: 1.1rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 800;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(224, 62, 26, 0.4);
-            text-transform: uppercase;
-        }
-
-        .btn-buy::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 200%; }
-            100% { left: 200%; }
-        }
-
-        .btn-buy:hover {
-            background: #C43212;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(224, 62, 26, 0.5);
-        }
-
-        .secure-badge {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: #64748B;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-
-        .bonus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .bonus-card {
-            background: var(--surface);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid var(--accent);
-            box-shadow: var(--shadow-soft);
+            gap: 12px;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .bonus-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+        .btn-primary-action:hover {
+            background: #1eb956;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
         }
 
-        .bonus-card i {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonials {
+        /* --- Stats / Highlight Row --- */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-        
-        .testimonial-card {
-            background: var(--surface);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            text-align: left;
-            box-shadow: var(--shadow-soft);
-            border-left: 4px solid var(--gold);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .testimonial-card p {
-            font-style: italic;
-            margin: 1rem 0;
+        .stat-card {
+            background: var(--surface-white);
+            padding: 1.8rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            border: 1px solid #F1F5F9;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 135, 90, 0.1);
+            color: var(--green-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .stat-card h4 {
+            font-size: 1.1rem;
+            color: var(--blue-navy);
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-card p {
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        /* --- Section Title --- */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 4rem auto 2.5rem auto;
         }
 
-        /* Modal do cliente */
-        .client-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
+        .section-header .section-tag {
+            color: var(--green-primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--blue-navy);
+            margin-top: 0.3rem;
+            font-weight: 800;
+        }
+
+        /* --- Proposals Grid --- */
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .proposal-card {
+            background: var(--surface-white);
+            border-radius: var(--radius-md);
+            padding: 2.2rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #E2E8F0;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proposal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--green-primary);
+        }
+
+        .proposal-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .proposal-badge-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+            color: white;
+            border-radius: 14px;
+            display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 135, 90, 0.25);
         }
-        .client-modal.active { display: flex; }
-        .client-modal-content {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
+
+        .proposal-card h3 {
+            font-size: 1.25rem;
+            color: var(--blue-navy);
+            font-weight: 800;
+            line-height: 1.3;
         }
-        .client-modal-content input {
-            width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: monospace;
+
+        .proposal-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .proposal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green-primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .proposal-link:hover {
+            color: var(--green-dark);
+            gap: 12px;
+        }
+
+        /* --- Quick Contact Options --- */
+        .interactive-contact {
+            background: var(--surface-white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-card);
+            margin: 4rem 0;
+            border: 1px solid #E2E8F0;
             text-align: center;
         }
 
+        .contact-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .option-btn {
+            background: #F1F5F9;
+            border: 1.5px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            padding: 1.2rem;
+            text-decoration: none;
+            color: var(--blue-navy);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .option-btn i {
+            color: #25D366;
+            font-size: 1.3rem;
+        }
+
+        .option-btn:hover {
+            background: #ECFDF5;
+            border-color: #25D366;
+            color: #065F46;
+            transform: translateY(-2px);
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #1eb956;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--blue-navy);
+            color: #94A3B8;
+            padding: 3rem 0 2rem 0;
+            border-top: 4px solid var(--gold-accent);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+        }
+
+        /* Responsividade */
         @media (max-width: 900px) {
-            .container { padding: 0 1rem; }
-            .sales-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .sales-section { padding: 2rem; margin: 2rem 0; }
-            .product-title { font-size: 2.2rem; }
-            .payment-options { flex-direction: column; }
+            .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-card { padding: 2.2rem 1.5rem; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.25rem; }
+            .interactive-contact { padding: 2rem 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="client-access">
-        <button class="btn-client" onclick="abrirModalCliente()">
-            <i class="fa-solid fa-user-lock"></i> ÁREA DO ALUNO
-        </button>
-    </div>
-
-    <!-- Modal do Cliente -->
-    <div id="modalCliente" class="client-modal">
-        <div class="client-modal-content">
-            <i class="fa-solid fa-key" style="font-size: 3rem; color: #1F3B1C; margin-bottom: 1rem;"></i>
-            <h3>Acesse sua Área de Membros</h3>
-            <p>Digite sua chave de acesso:</p>
-            <input type="text" id="chaveCliente" placeholder="Ex: PC-XXXXXX" autocomplete="off">
-            <button onclick="validarEAcessar()" style="background: #1F3B1C; color: white; padding: 1rem; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; width: 100%;">
-                <i class="fa-solid fa-arrow-right"></i> Acessar Agora
-            </button>
-            <button onclick="fecharModalCliente()" style="margin-top: 1rem; background: none; border: none; color: #888; cursor: pointer;">Cancelar</button>
-        </div>
-    </div>
-
-    <div class="container">
-        <!-- VENDAS HERO -->
-        <section class="sales-section reveal">
-            <div class="sales-grid">
-                <div>
-                    <span class="product-badge"><i class="fa-solid fa-microscope"></i> FÓRMULA BOTÂNICA VALIDADA</span>
-                    <h1 class="product-title">RESTAURE SUA VITALIDADE<br>com o Poder das Plantas Medicinais</h1>
-                    <p style="font-size: 1.2rem; opacity: 0.9;">Protocolo natural que já ajudou mais de 15.000 pessoas a desintoxicarem o corpo e recuperarem sua imunidade plena em 21 dias.</p>
-                    
-                    <div class="timer-container">
-                        <p style="font-weight: 600; margin-bottom: 5px;"><i class="fa-solid fa-stopwatch"></i> OFERTA DE LANÇAMENTO ENCERRA EM:</p>
-                        <div class="timer">
-                            <div class="timer-box"><span id="hours">02</span><label>Horas</label></div>
-                            <div class="timer-box"><span id="minutes">00</span><label>Min</label></div>
-                            <div class="timer-box"><span id="seconds">00</span><label>Seg</label></div>
-                        </div>
-                    </div>
-
-                    <ul class="benefits-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Protocolo de 21 dias com plantas acessíveis</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Purificação orgânica e celular profunda</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Método aprovado por fitoterapeutas</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Acesso imediato ao material e aos bônus</li>
-                    </ul>
-
-                    <div class="product-price">
-                        <span class="old-price">De R$ 197,00</span>
-                        12x de R$ 6,70
-                        <div style="font-size: 1.2rem; font-weight: 400; color: white; margin-top: 5px;">ou R$ 67,00 à vista</div>
-                    </div>
+    <!-- Navegação Superior -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="brand-flag"><i class="fa-solid fa-flag"></i></div>
+                <div class="brand-text">
+                    DR. GILMAR ROCHA
+                    <span>O DEPUTADO DO POVÃO</span>
                 </div>
+            </a>
+            <a href="https://wa.me/5511970341374?text=Olá!%20Vim%20pelo%20site%20e%20quero%20conversar." class="nav-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Fale Comigo
+            </a>
+        </div>
+    </nav>
 
-                <!-- FORMULÁRIO -->
-                <div>
-                    <div class="checkout-form">
-                        <h3 style="margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;">Finalize sua Inscrição</h3>
+    <!-- Botão Flutuante de WhatsApp -->
+    <a href="https://wa.me/5511970341374?text=Olá%20Dr.%20Gilmar%20Rocha,%20quero%20conhecer%20suas%20propostas!" class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <main class="container">
+        <!-- Hero Section Política -->
+        <section class="hero">
+            <div class="hero-card">
+                <div class="hero-grid">
+                    <div>
+                        <span class="badge-tag"><i class="fa-solid fa-heart-pulse"></i> Renovação e Saúde Para Todos</span>
+                        <h1 class="hero-title">DR. GILMAR ROCHA</h1>
+                        <div class="hero-subtitle">O Deputado do Povão</div>
                         
-                        <div class="payment-options">
-                            <button type="button" class="payment-btn active" onclick="selectPayment('pix', this)">
-                                <i class="fa-brands fa-pix"></i> PIX
-                            </button>
-                            <button type="button" class="payment-btn" onclick="selectPayment('card', this)">
-                                <i class="fa-regular fa-credit-card"></i> Cartão
-                            </button>
-                            <button type="button" class="payment-btn" onclick="selectPayment('boleto', this)">
-                                <i class="fa-solid fa-barcode"></i> Boleto
-                            </button>
+                        <p class="hero-description">
+                            Há <strong>35 anos morando na Zona Leste de SP</strong>, conheço na pele a dor e as dificuldades do nosso povo. Chega de filas da morte e descaso! Vamos transformar a saúde pública com projetos reais e coragem.
+                        </p>
+
+                        <div class="cta-box">
+                            <a href="https://wa.me/5511970341374?text=Olá%20Dr.%20Gilmar%20Rocha,%20apoio%20seu%20projeto!" class="btn-primary-action" target="_blank">
+                                <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i> FALE DIRETO COM O DEPUTADO
+                            </a>
                         </div>
+                    </div>
 
-                        <form id="checkoutForm">
-                            <div class="form-group">
-                                <label>Nome Completo</label>
-                                <input type="text" id="nome" required placeholder="Digite seu nome">
-                            </div>
-                            <div class="form-group">
-                                <label>E-mail (Para receber o acesso)</label>
-                                <input type="email" id="email" required placeholder="seu@email.com">
-                            </div>
-                            <div class="form-group">
-                                <label>WhatsApp</label>
-                                <input type="tel" id="whatsapp" placeholder="(00) 00000-0000">
-                            </div>
-                            
-                            <button type="submit" class="btn-buy" id="buyButton">
-                                QUERO GARANTIR MEU ACESSO
-                            </button>
-                            <div class="secure-badge">
-                                <i class="fa-solid fa-lock" style="color: #22C55E;"></i> Ambiente seguro e criptografado
-                            </div>
-                        </form>
+                    <div>
+                        <!-- Card Lateral Informativo -->
+                        <div style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); padding: 2rem; border-radius: var(--radius-md);">
+                            <i class="fa-solid fa-quote-left" style="font-size: 2rem; color: var(--gold-accent); margin-bottom: 1rem; display: block;"></i>
+                            <p style="font-size: 1.05rem; font-style: italic; color: #E2E8F0; margin-bottom: 1.5rem;">
+                                "Saúde pública não pode ser promessa de campanha, tem que ser compromisso com a vida humana. O povo merece tratamento digno!"
+                            </p>
+                            <div style="font-weight: 800; color: white;">— Dr. Gilmar Rocha</div>
+                            <div style="font-size: 0.85rem; color: var(--gold-accent);">Zona Leste, São Paulo</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- BÔNUS -->
-        <section class="reveal" style="margin: 5rem 0;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h3 class="serif" style="font-size: 2.5rem; color: var(--primary);">Bônus Exclusivos</h3>
-                <p>Garantindo sua vaga hoje, você recebe esses presentes gratuitamente.</p>
+        <!-- Destaques / Métricas do Candidato -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                    <h4>35 Anos de ZL</h4>
+                    <p>Mora e conhece a realidade diária dos bairros de São Paulo.</p>
+                </div>
             </div>
-            <div class="bonus-grid">
-                <div class="bonus-card">
-                    <i class="fa-solid fa-droplet"></i>
-                    <h4>Guia Glicemia Controlada</h4>
-                    <p>Estratégias naturais para auxiliar na regulação do açúcar no sangue de forma leve e eficaz.</p>
-                    <p style="color: #E03E1A; text-decoration: line-through; margin-top: 1rem;">R$ 97,00</p>
-                    <strong style="color: #22C55E;">HOJE: GRÁTIS</strong>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-leaf"></i></div>
+                <div>
+                    <h4>Medicina Natural</h4>
+                    <p>Incentivo a hospitais públicos de curas e terapias alternativas.</p>
                 </div>
-                <div class="bonus-card">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <h4>Escudo Imunológico</h4>
-                    <p>Um manual com as melhores tinturas e extratos para proteger seu corpo o ano inteiro.</p>
-                    <p style="color: #E03E1A; text-decoration: line-through; margin-top: 1rem;">R$ 127,00</p>
-                    <strong style="color: #22C55E;">HOJE: GRÁTIS</strong>
-                </div>
-                <div class="bonus-card">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <h4>Comunidade VIP</h4>
-                    <p>Acesso ao grupo exclusivo de alunos para tirar dúvidas e compartilhar resultados.</p>
-                    <p style="color: #E03E1A; text-decoration: line-through; margin-top: 1rem;">R$ 197,00</p>
-                    <strong style="color: #22C55E;">HOJE: GRÁTIS</strong>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div>
+                    <h4>Lei de Proteção</h4>
+                    <p>Governo pagará cirurgia particular se o SUS estourar o prazo.</p>
                 </div>
             </div>
         </section>
 
-        <!-- PROVA SOCIAL -->
-        <section class="reveal">
-            <div style="text-align: center;">
-                <h3 class="serif" style="font-size: 2.5rem; color: var(--primary);">Vidas Transformadas</h3>
+        <!-- Plano de Governo -->
+        <section>
+            <div class="section-header">
+                <span class="section-tag">Propostas de Impacto</span>
+                <h2>Plano de Governo para Salvar Vidas</h2>
             </div>
-            <div class="testimonials">
-                <div class="testimonial-card">
-                    <div style="color: var(--gold); margin-bottom: 10px;">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+
+            <div class="proposals-grid">
+                <!-- Card 1 -->
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <div class="proposal-badge-icon">
+                            <i class="fa-solid fa-hospital"></i>
+                        </div>
+                        <h3>Hospitais de Curas Alternativas</h3>
                     </div>
-                    <p>"Minha fadiga constante sumiu em menos de duas semanas aplicando os chás corretos. Incrível como a natureza age rápido."</p>
-                    <strong>— Ana Paula R.</strong>
+                    <p>
+                        Criação de uma rede pública de Hospitais Naturais mantida pela Prefeitura e Governo. O cidadão terá acesso gratuito a tratamentos naturais, fitoterapia e terapias integrativas custeadas pelo estado.
+                    </p>
+                    <a href="https://wa.me/5511970341374?text=Quero%20saber%20mais%20sobre%20os%20Hospitais%20de%20Curas%20Alternativas" class="proposal-link" target="_blank">
+                        Saber mais sobre esta proposta <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="testimonial-card">
-                    <div style="color: var(--gold); margin-bottom: 10px;">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+
+                <!-- Card 2 -->
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <div class="proposal-badge-icon">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h3>Lei Zero Fila para Cirurgias</h3>
                     </div>
-                    <p>"Os bônus sozinhos já valem 10x o valor do material. Consegui regular minha digestão e a energia voltou ao normal."</p>
-                    <strong>— Carlos M.</strong>
+                    <p>
+                        Projeto de Lei rigoroso: caso a rede pública não realize a cirurgia do paciente no prazo limite de urgência, o Estado será obrigado por lei a custear o procedimento em hospitais particulares.
+                    </p>
+                    <a href="https://wa.me/5511970341374?text=Quero%20saber%20mais%20sobre%20a%20Lei%20Zero%20Fila" class="proposal-link" target="_blank">
+                        Saber mais sobre esta proposta <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="testimonial-card">
-                    <div style="color: var(--gold); margin-bottom: 10px;">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+
+                <!-- Card 3 -->
+                <div class="proposal-card">
+                    <div class="proposal-header">
+                        <div class="proposal-badge-icon">
+                            <i class="fa-solid fa-people-roof"></i>
+                        </div>
+                        <h3>Gabinete Aberto na Periferia</h3>
                     </div>
-                    <p>"Fácil de seguir, didático e direto ao ponto. Estava cética, mas hoje indico o protocolo para toda a minha família."</p>
-                    <strong>— Fernanda L.</strong>
+                    <p>
+                        Presença constante e gabinetes itinerantes nos bairros da periferia de São Paulo para ouvir diretamente da população quais são as prioridades de cada comunidade.
+                    </p>
+                    <a href="https://wa.me/5511970341374?text=Quero%20receber%20o%20Gabinete%20Itinerante%20no%20meu%20bairro" class="proposal-link" target="_blank">
+                        Solicitar visita no meu bairro <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
-        
-        <!-- GARANTIA -->
-        <div class="reveal" style="text-align: center; padding: 4rem 2rem; background: var(--accent); border-radius: var(--radius-lg); margin: 4rem 0;">
-            <i class="fa-solid fa-award" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 class="serif" style="font-size: 2rem;">Garantia Incondicional de 7 Dias</h3>
-            <p style="max-width: 600px; margin: 1rem auto;">Seu risco é zero. Se você acessar o material e achar que não é para você, basta nos enviar um e-mail em até 7 dias e devolveremos 100% do seu investimento. Sem burocracia.</p>
+
+        <!-- Canal de Atendimento Direto -->
+        <section class="interactive-contact">
+            <h2 class="heading-font" style="color: var(--blue-navy); font-size: 2rem;">Como Você Quer Falar Comigo?</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Escolha uma das opções abaixo para abrir diretamente a conversa no meu WhatsApp:</p>
+
+            <div class="contact-options-grid">
+                <a href="https://wa.me/5511970341374?text=Quero%20declarar%20meu%20apoio%20ao%20Dr.%20Gilmar%20Rocha!" class="option-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Quero Declarar Meu Apoio
+                </a>
+                <a href="https://wa.me/5511970341374?text=Tenho%20uma%20sugestão%20de%20melhoria%20para%20o%20meu%20bairro" class="option-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Enviar Sugestão de Bairro
+                </a>
+                <a href="https://wa.me/5511970341374?text=Quero%20ajudar%20na%20divulgação%20da%20campanha" class="option-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Ser Voluntário na Campanha
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Oficial -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    DR. GILMAR ROCHA — O DEPUTADO DO POVÃO
+                </div>
+                <div>
+                    Contato / WhatsApp: <strong>(11) 97034-1374</strong>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Dr. Gilmar Rocha. Todos os direitos reservados.
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <script>
-        // Configuração do Mercado Pago
-        const PREFERENCE_ID = '1724894093-e91fbc4f-ef3d-4de1-b744-eb70a501e00a';
-        let metodoPagamento = 'pix';
-
-        function selectPayment(metodo, btn) {
-            metodoPagamento = metodo;
-            document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
-
-        // Timer de Urgência
-        function startTimer() {
-            let timeLeft = 2 * 60 * 60 + 15 * 60;
-            const timerInterval = setInterval(() => {
-                if (timeLeft <= 0) clearInterval(timerInterval);
-                else {
-                    timeLeft--;
-                    document.getElementById('hours').textContent = String(Math.floor(timeLeft / 3600)).padStart(2, '0');
-                    document.getElementById('minutes').textContent = String(Math.floor((timeLeft % 3600) / 60)).padStart(2, '0');
-                    document.getElementById('seconds').textContent = String(timeLeft % 60).padStart(2, '0');
-                }
-            }, 1000);
-        }
-        startTimer();
-
-        // Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-
-        // Checkout
-        document.getElementById('checkoutForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            
-            if (!nome || !email) {
-                alert('⚠️ Preencha nome e e-mail');
-                return;
-            }
-            
-            localStorage.setItem('cliente_nome', nome);
-            localStorage.setItem('cliente_email', email);
-            localStorage.setItem('cliente_whatsapp', whatsapp);
-            
-            let url = `https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=${PREFERENCE_ID}`;
-            if (metodoPagamento === 'pix') url += '&payment_method_id=pix';
-            if (metodoPagamento === 'boleto') url += '&payment_method_id=bolbradesco';
-            
-            window.location.href = url;
-        });
-
-        // Funções do modal do cliente
-        window.abrirModalCliente = () => document.getElementById('modalCliente').classList.add('active');
-        window.fecharModalCliente = () => document.getElementById('modalCliente').classList.remove('active');
-        
-        window.validarEAcessar = () => {
-            const chave = document.getElementById('chaveCliente').value.trim().toUpperCase();
-            if (!chave) return alert('🔒 Digite sua chave de acesso');
-            localStorage.setItem('chave_acesso', chave);
-            window.location.href = `area-membros.html?chave=${encodeURIComponent(chave)}`;
-        };
-        
-        document.getElementById('modalCliente').addEventListener('click', (e) => { 
-            if(e.target === document.getElementById('modalCliente')) window.fecharModalCliente(); 
-        });
-    </script>
 </body>
 </html>
