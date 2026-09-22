@@ -233,6 +233,30 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
         }
 
+        /* Estilo da Imagem em Destaque do Candidato */
+        .candidate-img-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .candidate-img {
+            width: 100%;
+            max-width: 380px;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            border: 4px solid var(--gold-accent);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .candidate-img:hover {
+            transform: scale(1.02);
+            border-color: #FFFFFF;
+        }
+
         /* --- Stats / Highlight Row --- */
         .stats-grid {
             display: grid;
@@ -529,11 +553,14 @@
                         </div>
                     </div>
 
-                    <div>
+                    <!-- Coluna Direita: Imagem do Candidato em Destaque e Citação -->
+                    <div class="candidate-img-box">
+                        <img src="https://i.pinimg.com/736x/e6/62/c2/e662c2f57d1fad39b5cd91a6a305a887.jpg" alt="Dr. Gilmar Rocha - O Deputado do Povão" class="candidate-img">
+
                         <!-- Card Lateral Informativo -->
-                        <div style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); padding: 2rem; border-radius: var(--radius-md);">
-                            <i class="fa-solid fa-quote-left" style="font-size: 2rem; color: var(--gold-accent); margin-bottom: 1rem; display: block;"></i>
-                            <p style="font-size: 1.05rem; font-style: italic; color: #E2E8F0; margin-bottom: 1.5rem;">
+                        <div style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--radius-md); width: 100%;">
+                            <i class="fa-solid fa-quote-left" style="font-size: 1.5rem; color: var(--gold-accent); margin-bottom: 0.5rem; display: block;"></i>
+                            <p style="font-size: 0.95rem; font-style: italic; color: #E2E8F0; margin-bottom: 1rem;">
                                 "Saúde pública não pode ser promessa de campanha, tem que ser compromisso com a vida humana. O povo merece tratamento digno!"
                             </p>
                             <div style="font-weight: 800; color: white;">— Dr. Gilmar Rocha</div>
